@@ -60,47 +60,26 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-# Proyecto Laravel – Layout Administrativo
+## Idioma, zona horaria, foto de perfil
 
-Este proyecto consiste en crear un **layout administrativo** funcional en Laravel, integrando Flowbite para la interfaz y utilizando buenas prácticas de Blade como la separación de código y slots para contenido dinámico.
+Hicimos cambios en el archivo .env para poder poner en español nuestra inferfaz, pero primero usando las siguientes dos lineas de comando en la terminal composer require laravel-lang/common , php artisan lang:add es
 
----
+Tambuen conectamos nuestra base de dados primero con este comando php artisan migrate y ya despues en .env
 
-## Creación del componente AdminLayout
+En la zona horaria en app.php solo cambiamos a 'timezone' => 'America/Merida',
 
-- Crear un componente Blade llamado `AdminLayout`.
-- Ubicarlo en:  
-resources/views/layouts/AdminLayout.blade.php
-- Este layout servirá como plantilla principal para todas las vistas administrativas e incluirá los contenedores básicos: sidebar, navbar y área de contenido principal.
+y por ultimo en jetstream,php descomentamos la siguiente linea para que nos deje agregar fotos de perfil Features::profilePhotos(),
 
----
+## Ruta Admin
 
-## Integración y funcionamiento de Flowbite
+En web.php lo que hacemos es comentar la primera ruta y de ahi creamos la ruta para que nos redireccione a admin, Route::redirect('/', '/admin');
 
-- Instalar e integrar **Flowbite** en el proyecto.
-- Verificar que:
-- **Sidebar** y **navbar** sean visibles y operativos.
-- Los botones funcionen correctamente para navegar, incluyendo la página de información de usuario.
-- Asegurarse de que los componentes interactivos de Flowbite (desplegables, botones, etc.) funcionen correctamente.
+## Uso de plantilla Flowbite
 
----
+En este caso lo que hicimos fue usar una plantilla de Flowbite, tuvimos que separar en diferentes archvios la estructura que nos dio flowbite para una mejor funcionalidad y modificacion
 
-## Separación de código con @include
+## Modificacion de la plantilla
 
-- Dividir la estructura del layout en archivos parciales (partials) para mantener el código limpio:
-- `resources/views/includes/sidebar.blade.php`
-- `resources/views/includes/navbar.blade.php`
-- Incluir estos archivos en `AdminLayout.blade.php` usando:
-```blade
-@include('includes.sidebar')
-@include('includes.navbar')
-Implementación de contenido dinámico con {{$slot}}
-
-Usar {{$slot}} dentro de AdminLayout para que las vistas hijas puedan insertar contenido dinámico:
-
-<div class="content">
-    {{$slot}}
-</div>
+En este caso creamo una carpte y seccionamos la parte de navegacion y de el sidebar, para que interactuen de forma diferente, los archivos son navigation.blade.php y sidebar.blade.php
 
 
-Por ejemplo, dashboard.blade.php debe extender AdminLayout y colocar su contenido dentro del slot.

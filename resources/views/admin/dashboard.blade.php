@@ -1,16 +1,11 @@
-<x-admin-layout :breadcrumbs="[
+<x-admin-layout :breadcrumbs=" [
     [
         'name' => 'Dashboard',
         'href' => route('admin.dashboard'),
-    ],
-    [
-        'name' => 'Sid',
-        'href' => route('admin.dashboard'),
-    ],
-    [
-        'name' => 'Verstapen',
-        'href' => route('admin.dashboard'),
-    ],
+],
+['name' => 'Profile'],
 ]">
-    Hola mundo desde Admin
+
+    Hola mundo desde ADMIN
+
 </x-admin-layout>

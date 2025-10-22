@@ -1,6 +1,6 @@
 @import "flowbite/src/themes/default";
-@import "flowbite/plugin";
-@import "../node_modules/flowbite";
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
 
 @tailwind base;
 @tailwind components;

@@ -6,7 +6,7 @@ import typography from '@tailwindcss/typography';
 export default {
     presets: [
         ...
-        require("./vendor/wireui/wireui/tailwind.config.js")
+            require("./vendor/wireui/wireui/tailwind.config.js")
     ],
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
@@ -18,8 +18,8 @@ export default {
         "./vendor/wireui/wireui/ts/**/*.ts",
         "./vendor/wireui/wireui/src/WireUi/**/*.php",
         "./vendor/wireui/wireui/src/Components/**/*.php",
-        
-        "./vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php",
+
+        './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
     ],
 
     theme: {
