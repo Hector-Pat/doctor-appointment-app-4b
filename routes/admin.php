@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\RoleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
     return view('admin.dashboard');
 })->name('dashboard');
 
-//Gestion de roles
-Route::resource('roles', RoleController::class);
-
+// Gestión de roles
+Route::resource('roles', RoleController::class)->names('roles');

@@ -20,14 +20,14 @@ class RoleTable extends DataTableComponent
         return [
             Column::make("Id", "id")
                 ->sortable(),
-            Column::make("Nombre", "name")
+            Column ::make ("Nombre","name")
                 ->sortable()
                 ->searchable(),
             Column::make("Fecha", "created_at")
                 ->sortable()
-                ->format(function ($value) {
-                    return $value->created_at->format('d/m/Y');
+                ->format (function($value){
+                    return $value -> format ('d/m/Y');
                 }),
-        ];
-    }
+            ];
+            }
 }

@@ -42,4 +42,4 @@
             @endif
         </div>
     </div>
-</x-admin-layout>
+</x-app-layout>
