@@ -9,3 +9,7 @@ Route::get('/', function () {
 
 // Gestión de roles
 Route::resource('roles', RoleController::class)->names('roles');
+
+
+
+// comentariossssssssss
