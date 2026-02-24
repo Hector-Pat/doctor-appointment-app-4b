@@ -17,7 +17,7 @@ class BloodTypeSeeder extends Seeder
         ];
 
         foreach ($bloodTypes as $bloodType) {
-            // Se usa 'type' porque así lo definiste en la migración
+            // Se usa 'type' porque así está definido en la migración.
             BloodType::firstOrCreate([
                 'type' => $bloodType
             ]);

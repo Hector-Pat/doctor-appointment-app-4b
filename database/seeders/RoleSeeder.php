@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
-class RoleSeeder extends Seeder
+class   RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,11 +21,11 @@ class RoleSeeder extends Seeder
             'Administrador'
         ];
         //Crear en la BD
-        foreach ($roles as $role){
-            Role::create([
-                'name'=>$role
-            ]
-            );
+        foreach ($roles as $role) {
+            Role::firstOrCreate([
+                'name' => $role,
+                'guard_name' => 'web',
+            ]);
         }
         //
     }

@@ -1,7 +1,9 @@
-<div class="flex items-center space-x-2">
 
-    <x-wire-button href="{{ route('admin.patients.edit', $patient) }}" blue xs>
-        <i class="fa-solid fa-pen-to-square"></i>
+<div class="flex gap-2">
+    <x-wire-button
+        sm
+        primary
+        href="{{ route('admin.patients.edit', $patient) }}">
+        Editar
     </x-wire-button>
-
 </div>
