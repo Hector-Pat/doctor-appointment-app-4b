@@ -14,3 +14,6 @@ Route::resource('roles', RoleController::class)->names('roles');
 Route::resource('users', UserController::class)->names('users');
 Route::resource('patients', PatientController::class)->names('patients');
 Route::resource('doctors', \App\Http\Controllers\Admin\DoctorController::class)->only(['index','edit','update']);
+
+// Módulo de Soporte
+Route::resource('support', \App\Http\Controllers\Admin\SupportTicketController::class)->only(['index', 'create', 'store'])->names('support');
