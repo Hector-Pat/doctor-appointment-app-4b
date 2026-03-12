@@ -13,6 +13,9 @@ class Appointment extends Model
         'start_time',
         'end_time',
         'status',
+        'diagnosis',
+        'treatment',
+        'notes',
     ];
 
     public function patient()
@@ -23,5 +26,10 @@ class Appointment extends Model
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
+    }
+
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class);
     }
 }

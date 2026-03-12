@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prescription extends Model
 {
-    //
+    protected $fillable = [
+        'appointment_id',
+        'medication',
+        'dosage',
+        'frequency_duration',
+    ];
+
+    public function appointment()
+    {
+        return $this->belongsTo(Appointment::class);
+    }
 }

@@ -4,6 +4,7 @@
         <i class="fa-solid fa-pen-to-square"></i>
     </x-wire-button>
 
+
     <form action="{{ route('admin.appointments.destroy', $appointment) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta cita?');" style="display:inline;">
         @csrf
         @method('DELETE')

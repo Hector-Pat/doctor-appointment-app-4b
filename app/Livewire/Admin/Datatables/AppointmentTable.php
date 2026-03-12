@@ -11,9 +11,15 @@ class AppointmentTable extends DataTableComponent
 {
     public function builder(): Builder
     {
-        return Appointment::query()
+        $query = Appointment::query()
             ->select('appointments.*')
             ->with(['patient.user', 'doctor.user']);
+
+        if (request()->filled('patient_id')) {
+            $query->where('patient_id', request('patient_id'));
+        }
+
+        return $query;
     }
 
     public function configure(): void
@@ -33,15 +39,15 @@ class AppointmentTable extends DataTableComponent
                 ->label(fn ($row) => $row->doctor?->user?->name ?? 'N/A'),
 
             Column::make('Fecha', 'appointment_date')
-                ->format(fn($value) => \Carbon\Carbon::parse($value)->format('d/m/Y'))
+                ->format(fn ($value) => \Carbon\Carbon::parse($value)->format('d/m/Y'))
                 ->sortable(),
 
             Column::make('Hora', 'start_time')
-                ->format(fn($value) => \Carbon\Carbon::parse($value)->format('H:i'))
+                ->format(fn ($value) => \Carbon\Carbon::parse($value)->format('H:i'))
                 ->sortable(),
 
             Column::make('Hora Fin', 'end_time')
-                ->format(fn($value) => \Carbon\Carbon::parse($value)->format('H:i'))
+                ->format(fn ($value) => \Carbon\Carbon::parse($value)->format('H:i'))
                 ->sortable(),
 
             Column::make('Estado', 'status')->sortable(),
