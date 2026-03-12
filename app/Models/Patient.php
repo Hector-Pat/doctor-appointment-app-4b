@@ -30,4 +30,9 @@ class Patient extends Model
     {
         return $this->belongsTo(BloodType::class);
     }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

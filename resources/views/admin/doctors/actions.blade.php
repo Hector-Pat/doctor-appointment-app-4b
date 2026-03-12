@@ -4,4 +4,8 @@
         <i class="fa-solid fa-pen-to-square"></i>
     </x-wire-button>
 
+    <x-wire-button href="{{ route('admin.doctors.schedules', $doctor) }}" teal xs title="Gestor de Horarios">
+        <i class="fa-solid fa-calendar-alt"></i>
+    </x-wire-button>
+
 </div>
